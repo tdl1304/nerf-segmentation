@@ -27,11 +27,8 @@ FILTER = ["person"]
 #FILTER = ['car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle', 'person', 'rider']
 
 def load_image(image_path: str):
-    """Load an image from a file or URL."""
-    if image_path.startswith('http://') or image_path.startswith('https://'):
-        return Image.open(requests.get(image_path, stream=True).raw)
-    else:
-        return Image.open(image_path)
+    #Load an image from a file
+    return Image.open(image_path)
 
 
 def segment_images(folder: Path):

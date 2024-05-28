@@ -26,10 +26,6 @@ FILTER = ["person"]
 #FILTER = ["car"]
 #FILTER = ['car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle', 'person', 'rider']
 
-def load_image(image_path: str):
-    #Load an image from a file
-    return Image.open(image_path)
-
 
 def segment_images(folder: Path):
     #image_dir = folder / 'images'
@@ -49,7 +45,7 @@ def segment_images(folder: Path):
             mask_path_complete = mask_dir / mask_img_path
             frame["mask_path"] = "masks/" + mask_img_path
             
-            image = load_image(image_path)
+            image = Image.open(image_path)
             original_size = image.size
 
             results = semantic_segmentation(image)
